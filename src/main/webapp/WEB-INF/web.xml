@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <javaee:display-name>Weather Forecast</javaee:display-name>
+  <welcome-file-list>
+    <welcome-file>weather.jsp</welcome-file>
+  </welcome-file-list>
+  <filter>
+    <filter-name>UpdateCacheFilter</filter-name>
+    <filter-class>com.bench.training.filter.UpdateCacheFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>UpdateCacheFilter</filter-name>
+    <servlet-name>WeatherServlet</servlet-name>
+  </filter-mapping>
+  <filter>
+    <filter-name>DefaultCityFilter</filter-name>
+    <filter-class>com.bench.training.filter.DefaultCityFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>DefaultCityFilter</filter-name>
+    <servlet-name>WeatherServlet</servlet-name>
+  </filter-mapping>
+  <servlet>
+    <javaee:description>Weather Servlet</javaee:description>
+    <javaee:display-name>WeatherServlet</javaee:display-name>
+    <servlet-name>WeatherServlet</servlet-name>
+    <servlet-class>com.bench.training.servlet.WeatherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WeatherServlet</servlet-name>
+    <url-pattern>/WeatherServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <javaee:description></javaee:description>
+    <javaee:display-name>GenServlet</javaee:display-name>
+    <servlet-name>GenServlet</servlet-name>
+    <servlet-class>com.bench.training.proba.GenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GenServlet</servlet-name>
+    <url-pattern>/GenServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
